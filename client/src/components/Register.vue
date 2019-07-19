@@ -1,12 +1,13 @@
 <template>
     <div class="form-control"> 
-        <h1 class="form-title">Register</h1> 
+        <div v-if="withError" class="error" v-html="error"/>
+        <h1 class="form-title">register</h1> 
         <div class="form-control__inputs">
             <input type="email" name="email" v-model="email" placeholder="email"> 
             <input type="password" name="password" v-model="password" placeholder="password"> 
         </div>
         <div class="form-control__actions">
-            <button @click="register" type="submit">Register Now!</button> 
+            <button @click="register" type="submit">register</button> 
         </div>
     </div>
 </template>
@@ -18,24 +19,25 @@ export default {
   data () {
     return {
         email: '',
-        password: '' 
+        password: '',
+        error: null,
+        withError: false
     }
   }, 
   methods: {
-      async register(){
-        //   wait for response back from server 
-          const response = await AuthenticationService.register({
-              email: this.email, 
-              password: this.password
-          })
-          console.log(response.data); 
-      }
-  },
-  mounted(){
-     
-  },
-  watch:{
-    
+    async register(){
+        try{
+            //send request to backend and try getting the response
+            await AuthenticationService.register({
+                email: this.email,
+                password: this.password
+            })
+            this.withError = false; 
+        } catch(error){
+            this.error = error.response.data.error; 
+            this.withError = true; 
+        }
+    }
   }
 }
 </script>
@@ -43,13 +45,25 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.error{
+    color: red; 
+    background: white; 
+    border-radius: 3px; 
+    padding: 5px 0;
+}
+
 .form-control{
+    text-align: center;
+    margin: auto; 
+    width: 500px; 
     background: rgb(255,127,80); 
     padding: 20px 40px; 
+    border-radius: 5px; 
 }
 
 .form-title{
     font-size: 40px; 
+    font-weight: 400; 
     color: white; 
 }
 
@@ -63,16 +77,18 @@ export default {
 }
 
 .form-control__actions button{
+    font: inherit;
     margin-top: 10px; 
     background-color: white; 
+    border-radius: 3px; 
     cursor: pointer; 
     padding: 8px; 
-    font: inherit;
 }
 
 .form-control__actions button:hover,
 .form-control__actions button:active{
 	background-color: rgb(255,127,80); 
 	color: white; 
+    font-weight: bold; 
 }
 </style>
