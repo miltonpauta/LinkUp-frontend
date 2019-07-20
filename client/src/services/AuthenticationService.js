@@ -1,4 +1,4 @@
-//This will hit the '/register' endpoint. 
+//This will hit the **** '/register', '/login' **** endpoint. 
 
 //import connection to the backend 
 import Api from '@/services/Api'
@@ -9,6 +9,9 @@ export default{
     register(credentials){
         // basically ---> axios.post('http://localhost:3000/register)
         return Api().post('register', credentials)
+    },
+    login(credentials){
+        return Api().post('login', credentials)
     }
 }
 

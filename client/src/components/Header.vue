@@ -1,7 +1,7 @@
 <template>
     <header class="main-header">
 		<div class="main-header__brand">
-			<router-link to="/feed" class="button">LinkUp</router-link>
+			<router-link to="feed" class="button">LinkUp</router-link>
 		</div>
 		<nav class="main-nav">
 			<ul class="main-nav__items">
