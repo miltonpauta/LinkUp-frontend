@@ -27,10 +27,17 @@ export default {
   methods: {
     async login(){
         try{
-            await AuthenticationService.login({
+            const response = await AuthenticationService.login({
                 email: this.email,
                 password: this.password
             })
+            //login is successful, response is retrieved
+            //add data to the vuex store 
+
+            this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
+            this.$store.dispatch('setUser', response.data.userId); 
+
+
             this.withError = false; 
         }catch(error){
             this.error = error.response.data.error; 

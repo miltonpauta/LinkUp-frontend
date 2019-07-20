@@ -28,10 +28,13 @@ export default {
     async register(){
         try{
             //send request to backend and try getting the response
-            await AuthenticationService.register({
+            const response = await AuthenticationService.register({
                 email: this.email,
                 password: this.password
             })
+            //store response data in vuex store 
+            this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
+            this.$store.dispatch('setUser', response.data.userId); 
             this.withError = false; 
         } catch(error){
             this.error = error.response.data.error; 
