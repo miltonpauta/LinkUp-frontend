@@ -17,10 +17,11 @@
 				<li class="main-nav__item">
                     <router-link to="messages" class="button">messages</router-link>
 				</li> 
-                <li class="main-nav__item">
+			<!-- use vuex store... if user is NOT logged in, display login router and register link!-->
+                <li v-if="!$store.state.isUserLoggedIn" class="main-nav__item">
                     <router-link to="login" class="button">login</router-link>
 				</li> 
-                 <li class="main-nav__item">
+                 <li v-if="!$store.state.isUserLoggedIn" class="main-nav__item">
                      <!-- will go to router page and find a router NAMED "register" which u did make -->
                     <router-link to="register" class="button">sign up</router-link>
 				</li> 
