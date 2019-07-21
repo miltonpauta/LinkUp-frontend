@@ -8,13 +8,13 @@
 				<li class="main-nav__item">
                     <router-link to="feed" class="button">feed</router-link>
 				</li>
-				<li class="main-nav__item">
+				<li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
                     <router-link to="requests" class="button">requests</router-link>
 				</li>
-				<li class="main-nav__item">
+				<li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
                     <router-link to="songs" class="button">your songs</router-link>
 				</li>
-				<li class="main-nav__item">
+				<li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
                     <router-link to="messages" class="button">messages</router-link>
 				</li> 
 			<!-- use vuex store... if user is NOT logged in, display login router and register link!-->
@@ -25,17 +25,45 @@
                      <!-- will go to router page and find a router NAMED "register" which u did make -->
                     <router-link to="register" class="button">sign up</router-link>
 				</li> 
+				 <li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
+					<button @click="logout" class="logoutButton" >logout</button>
+				</li> 
 			</ul>
 		</nav>
 	</header>
 </template>
 
 <script>
+	export default {
+		methods: {
+			logout(){
+				this.$store.dispatch('setUser', null);
+				this.$store.dispatch('setToken', null);
+				//TODO: redirect to homepage!
+			}
+		}
+	}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.logoutButton{
+	border: 0px; 
+	background-color: rgb(255,127,80); 
+	padding: 3px; 
+	color: white; 
+	font-family: 'Questrial', sans-serif;
+	font-size: 25px; 
+	cursor: pointer; 
+}
+
+.main-nav__item button:hover,
+.main-nav__item button:active{
+	font-weight: bold; 
+}
+
 .main-header{
     width:100%; 
     margin-bottom: 60px; 

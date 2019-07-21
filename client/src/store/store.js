@@ -1,4 +1,4 @@
-//this file gets access to store 
+//this file gets access to store, the store will therefore be avaliable to all of application
 import Vue from 'vue'
 import Vuex from 'vuex'
 

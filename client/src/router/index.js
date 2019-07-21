@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Feed from '@/components/HelloWorld'
+import Feed from '@/components/Feed'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 
