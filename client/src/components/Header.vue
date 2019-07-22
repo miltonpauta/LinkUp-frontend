@@ -65,12 +65,15 @@
 }
 
 .main-header{
+	/* position: fixed;  */
+	/* make sure all content below has a relative(?) position and this nav z-index value is greater than all below shit */
     width:100%; 
     margin-bottom: 60px; 
 	font-family: 'Questrial', sans-serif;
 	background-color: rgb(255,127,80); 
 	padding: 35px 0 0 0; 
 	height: 100px; 
+	/* box-sizing: border-box;  */
 }
 
 .main-header__brand{
