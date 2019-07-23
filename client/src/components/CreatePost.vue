@@ -1,11 +1,10 @@
 <template>
     <div class="form-control"> 
-        <div v-if="withError" class="error" v-html="error"/>
+        <!-- <div v-if="withError" class="error" v-html="error"/> -->
         <h1 class="form-title">post what you're working on</h1> 
         <div class="form-control__inputs">
             <input type="text" name="title" v-model="title" placeholder="add a title to your post"> 
-            <input type="file" name="audio">
-            <!-- <input type="text" name="caption" v-model="caption" placeholder="..and a caption">  -->
+            <input type="file" ref="file" @change="handleSelectedFile">
             <textarea name="caption" v-model="caption" placeholder="..and a caption" rows="5" cols="45"></textarea>
         </div>
         <div class="form-control__actions">
@@ -15,6 +14,49 @@
 </template>
 
 <script>
+import PostService from '../services/PostService'
+import axios from 'axios'
+
+export default {
+    data(){
+        return {
+            title: '',
+            file: '', 
+            caption: '',
+            error: null,
+        }
+    },
+    methods: {
+        //something is wrong here! file is not assigned to this.file sometimes , its a bug so fix it 
+        handleSelectedFile(){
+
+            //format = this.$refs <= all refs made on html 
+                //              .file <= name of ref 
+                        //            .files[0] <= get the first one 
+            this.file = this.$refs.file.files[0]; 
+            console.log(this.file)
+        },
+        createPost(){
+            console.log(this.file)
+            //initialze form data
+            const formData = new FormData();
+            formData.set('title', this.title); 
+            formData.set('caption', this.caption); 
+            formData.append('audio', this.file); 
+
+            try{
+                axios.post('http://localhost:3000/posts/create', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                } 
+            ); 
+            }catch(error){
+                console.log(error.response.data.error); 
+            }
+        }
+    }
+}
 
 </script>
 
