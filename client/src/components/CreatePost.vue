@@ -36,7 +36,7 @@ export default {
             this.file = this.$refs.file.files[0]; 
             console.log(this.file)
         },
-        createPost(){
+        async createPost(){
             console.log(this.file)
             //initialze form data
             const formData = new FormData();
@@ -45,15 +45,18 @@ export default {
             formData.append('audio', this.file); 
 
             try{
-                axios.post('http://localhost:3000/posts/create', formData, {
+                const response = await axios.post('http://localhost:3000/posts/create', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
                 } 
             ); 
             }catch(error){
-                console.log(error.response.data.error); 
+                console.log('error with post request', error.response.data.error); 
             }
+
+            //redirect to feed page
+            this.$router.push("/feed");
         }
     }
 }
