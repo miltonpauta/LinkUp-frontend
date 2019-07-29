@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Feed from '@/components/Feed'
+import Feed from '@/components/FeedPage'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import CreatePost from '@/components/CreatePost'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/feed',
@@ -27,7 +27,25 @@ export default new Router({
     {
       path:'/create',
       name: 'create-post',
-      component: CreatePost
+      component: CreatePost,
+      meta: {
+        requiresAuth: true 
+      }
     }
   ]
 })
+
+// router.beforeEach((to, from, next) => {
+//   if(to.matched.some(record => record.meta.requiresAuth)) {
+//     if ($store.state.isUserLoggedIn) {
+//       next()
+//       return 
+//     }
+//     next('/login') 
+//   } else {
+//     // next()
+//     router.push('/login')
+//   }
+// })
+
+export default router; 

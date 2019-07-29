@@ -1,7 +1,7 @@
 <template>
     <div id="feedPage">
         <!-- work on this form later, make a panel that displays all shit using data in mongodb  -->
-        <div class="link-to-create-post">
+        <div v-if="$store.state.isUserLoggedIn" class="link-to-create-post">
             <button @click="$router.push('create')">Click to Create Post</button>
         </div>
 
@@ -9,7 +9,8 @@
 			<div class="feed-section__title">
 				<!-- Feed Page!  -->
 			</div>
-            <!-- call component to display posts, passdown posts! -->
+            <!-- call component to display posts, pass down posts using v-bind! -->
+            <!-- note: if data u passing down u plan to modify,etc make sure its primitive(like a string, look into it more) -->
             <DisplayPosts v-bind:posts="posts"></DisplayPosts>
 		</div>
     </div>
@@ -24,7 +25,8 @@ export default {
     data(){
         return {
             // this will be posts returned from backend (in a array)
-            posts: null
+            posts: null,
+            // isAdmin: null
         }
     }, 
     async mounted(){

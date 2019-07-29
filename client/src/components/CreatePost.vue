@@ -1,6 +1,14 @@
 <template>
     <div class="form-control"> 
         <!-- <div v-if="withError" class="error" v-html="error"/> -->
+        <p v-if="withError">
+            <b>Please correct the following error(s):</b>
+            <ul>
+                <li v-for="e in error" v-bind:key="e._id">{{ e }}</li>
+            </ul>
+        </p>
+
+
         <h1 class="form-title">post what you're working on</h1> 
         <div class="form-control__inputs">
             <input type="text" name="title" v-model="title" placeholder="add a title to your post"> 
@@ -8,7 +16,7 @@
             <textarea name="caption" v-model="caption" placeholder="..and a caption" rows="5" cols="45"></textarea>
         </div>
         <div class="form-control__actions">
-            <button @click="createPost" type="submit">post</button> 
+            <button @click="checkForm" type="submit">post</button> 
         </div>
     </div>
 </template>
@@ -24,20 +32,35 @@ export default {
             file: '', 
             caption: '',
             error: null,
+            withError: false
         }
     },
     methods: {
-        //something is wrong here! file is not assigned to this.file sometimes , its a bug so fix it 
+        //add validation here! 
         handleSelectedFile(){
 
             //format = this.$refs <= all refs made on html 
                 //              .file <= name of ref 
                         //            .files[0] <= get the first one 
             this.file = this.$refs.file.files[0]; 
-            console.log(this.file)
+        },
+        checkForm(event){
+            //check validation for title and caption 
+            if(this.title && this.caption){
+                //call createPost function
+                this.createPost();
+            }
+            console.log(this.title); 
+            this.withError = true; 
+            this.error = [];
+            if(!this.title){
+                this.error.push('Title required')
+            }
+            if(!this.caption){
+                this.error.push('Caption required')
+            }
         },
         async createPost(){
-            console.log(this.file)
             //initialze form data
             const formData = new FormData();
             formData.set('title', this.title); 
@@ -45,18 +68,19 @@ export default {
             formData.append('audio', this.file); 
 
             try{
-                const response = await axios.post('http://localhost:3000/posts/create', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
+                await axios.post('http://localhost:3000/posts/create', formData, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        }
                     }
-                } 
-            ); 
+                )  
+                this.withError = false; 
+                this.$router.push("/feed");
             }catch(error){
-                console.log('error with post request', error.response.data.error); 
+                this.error = error.response.data.error; 
+                this.withError = true; 
+                // console.log('error with post request', error.response.data.error); 
             }
-
-            //redirect to feed page
-            this.$router.push("/feed");
         }
     }
 }
