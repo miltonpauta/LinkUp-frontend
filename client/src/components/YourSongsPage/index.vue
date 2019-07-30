@@ -7,7 +7,7 @@
 
         <div class="feed-section">
 			<div class="feed-section__title">
-				this is where your songs show! 
+                
 			</div>
             <!-- call component to display posts, pass down posts using v-bind! -->
             <!-- note: if data u passing down u plan to modify,etc make sure its primitive(like a string, look into it more) -->

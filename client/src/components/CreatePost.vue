@@ -79,7 +79,14 @@ export default {
                     }
                 )  
                 this.withError = false; 
-                this.$router.push("/feed");
+
+                //if post is created in "your songs page", redirect to same page. VICE VERSA 
+                if(this.$store.state.route.from.fullPath === '/your-songs'){
+                    this.$router.push("/your-songs");
+                }
+                else{
+                    this.$router.push("/feed");
+                }
             }catch(error){
                 this.error = error.response.data.error; 
                 this.withError = true; 
