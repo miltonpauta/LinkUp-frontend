@@ -3,6 +3,8 @@
         <div v-if="withError" class="error" v-html="error"/>
         <h1 class="form-title">register</h1> 
         <div class="form-control__inputs">
+            <input type="text" name="firstName" v-model="firstName" placeholder="first name"> 
+            <input type="text" name="lastName" v-model="lastName" placeholder="last name"> 
             <input type="email" name="email" v-model="email" placeholder="email"> 
             <input type="password" name="password" v-model="password" placeholder="password"> 
         </div>
@@ -20,6 +22,8 @@ export default {
     return {
         email: '',
         password: '',
+        firstName: '',
+        lastName: '',
         error: null,
         withError: false
     }
@@ -29,6 +33,8 @@ export default {
         try{
             //send request to backend and try getting the response
             const response = await AuthenticationService.register({
+                firstName: this.firstName,
+                lastName: this.lastName,
                 email: this.email,
                 password: this.password
             })
