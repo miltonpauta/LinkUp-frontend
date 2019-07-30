@@ -13,7 +13,7 @@
 				</div>
 				<div class="post-user">
 					<div class="post-user__email">
-                        thiswillsoonbeusername@gmail.com
+                        {{post.creatorName}}
                     </div>
 				</div>
 				<!-- will add functionality to post comments! -->
@@ -40,9 +40,14 @@ export default {
     props: ['posts'],
     data(){
         return {
-
+			fullName: ''
         }
-    }
+	},
+	computed: {
+		fullName(){
+			return this.posts.firstName + ' ' + this.posts.lastName
+		}
+	}
 }
 
 </script>
