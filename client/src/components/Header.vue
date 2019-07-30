@@ -12,7 +12,7 @@
                     <router-link to="requests" class="button">requests</router-link>
 				</li>
 				<li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
-                    <router-link to="songs" class="button">your songs</router-link>
+                    <router-link to="your-songs" class="button">your songs</router-link>
 				</li>
 				<li v-if="$store.state.isUserLoggedIn" class="main-nav__item">
                     <router-link to="messages" class="button">messages</router-link>

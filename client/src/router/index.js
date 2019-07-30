@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Feed from '@/components/FeedPage'
+import Feed from '@/components/FeedPage/index'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import CreatePost from '@/components/CreatePost'
+import YourSongsPage from '@/components/YourSongsPage/index'
 
 Vue.use(Router)
 
@@ -30,6 +31,14 @@ const router =  new Router({
       component: CreatePost,
       meta: {
         requiresAuth: true 
+      }
+    },
+    {
+      path: '/your-songs',
+      name: 'your-songs',
+      component: YourSongsPage,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
