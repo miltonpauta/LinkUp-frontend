@@ -30,9 +30,10 @@ export default {
         }
     }, 
     async mounted(){
-        //do a request to the backend for ALL the posts
-        const response = await PostService.index()
-        this.posts = response.data.allPosts
+
+        //do a request to the backend for posts belong to session user
+        const response = await PostService.ShowMyPosts(this.$store.state.userId)
+        this.posts = response.data.posts; 
     },
     components: {
         DisplayPosts

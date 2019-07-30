@@ -17,5 +17,9 @@ export default{
                 'Content-Type': 'application/json'
             }
         })
+    },
+    ShowMyPosts(userId){
+        //hits route: "localhost:3000/posts/:userId"
+        return Api().get(`posts/myPosts/${userId}`)
     }
 }
