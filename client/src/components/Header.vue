@@ -39,7 +39,9 @@
 			logout(){
 				this.$store.dispatch('setUser', null);
 				this.$store.dispatch('setToken', null);
-				//TODO: redirect to homepage!
+
+				//redirect to homepage!
+				this.$router.push("/feed");
 			}
 		}
 	}

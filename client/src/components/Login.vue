@@ -37,8 +37,10 @@ export default {
             this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
             this.$store.dispatch('setUser', response.data.userId); 
 
-
             this.withError = false; 
+
+            //redirect to feed page!
+            this.$router.push("/feed");
         }catch(error){
             this.error = error.response.data.error; 
             this.withError = true; 

@@ -1,7 +1,7 @@
 <template>
     <div class="form-control"> 
         <!-- <div v-if="withError" class="error" v-html="error"/> -->
-        <p v-if="withError">
+        <p v-if="withError" class="error">
             <b>Please correct the following error(s):</b>
             <ul>
                 <li v-for="e in error" v-bind:key="e._id">{{ e }}</li>
@@ -46,7 +46,7 @@ export default {
         },
         checkForm(event){
             //check validation for title and caption 
-            if(this.title && this.caption){
+            if(this.title && this.caption && this.file){
                 //call createPost function
                 this.createPost();
             }
@@ -56,6 +56,9 @@ export default {
             if(!this.title){
                 this.error.push('Title required')
             }
+            if(!this.file){
+                this.error.push('Mp3 file required.')
+            }
             if(!this.caption){
                 this.error.push('Caption required')
             }
@@ -63,6 +66,7 @@ export default {
         async createPost(){
             //initialze form data
             const formData = new FormData();
+            formData.set('userId', this.$store.state.userId)
             formData.set('title', this.title); 
             formData.set('caption', this.caption); 
             formData.append('audio', this.file); 
@@ -94,6 +98,10 @@ export default {
     background: white; 
     border-radius: 3px; 
     padding: 5px 0;
+}
+
+.error li{
+    list-style-type: none;
 }
 
 .form-control{

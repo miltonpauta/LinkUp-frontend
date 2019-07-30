@@ -36,6 +36,9 @@ export default {
             this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
             this.$store.dispatch('setUser', response.data.userId); 
             this.withError = false; 
+
+            //redirect to login page 
+            this.$router.push("/login");
         } catch(error){
             this.error = error.response.data.error; 
             this.withError = true; 
