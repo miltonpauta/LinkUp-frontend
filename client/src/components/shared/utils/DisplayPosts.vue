@@ -89,26 +89,25 @@ export default {
 }
 
 .post-user{
-	padding: 15px 20px; 
-	background-color: rgb(255,127,80); 
+	padding: 20px 0;
+	margin-left: 20px; 
+	display: inline-block;
 	color:white;
 }
 
 .post-user__email{
-	width: 300px;
 	color: black;
 	font-weight: bold;
 }
 
 .post-actions{
-	background-color: rgb(255,127,80); 
+	padding: 20px 0;
+	margin: 0 25px;
+	display: inline-block;
 }
 
 .post-buttons{
-	padding: 10px 20px;
-	/*margin-left: 1px; */
-	/*background-color: rgb(255,127,80);*/
-	background-color: rgb(169,169,169);
+
 	border-top-right-radius: 2px;
 	border-top-left-radius: 2px;
 	display: inline-block;
@@ -122,6 +121,7 @@ export default {
 }
 
 .post-caption{
+	border-top: 15px solid rgb(255,127,80); 
 	/*background-color: rgb(255,127,80); */
 	background-color: white; 
 	padding: 20px; 

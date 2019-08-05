@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button>i am delete button</button>
+        <button>delete/hidden menu</button>
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-button{
-    background-color: green;
+div{
+    display: inline-block;
 }
 </style>

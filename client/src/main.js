@@ -6,10 +6,10 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'     
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false; 
 
 //sync store to the router, u can access store data from router (its components/endpoints)
-sync(store, router)
+sync(store,router); 
 
 //Add store into this app! along with everything else below that it needs 
 
@@ -20,4 +20,4 @@ new Vue({
   store,
   components: { App },
   template: '<App/>'
-})
+}); 
