@@ -11,20 +11,26 @@
                          {{post.audioSrc}}
                     </label>
 				</div>
-				<div class="post-user">
-					<div class="post-user__email">
-                        {{post.creatorName}}
-                    </div>
-				</div>
-				<!-- will add functionality to post comments! -->
-				<div class="post-actions">
-					<div class="post-buttons">
-						<!-- also add "button" class to button! (thats already made in the app)-->
-						<button class="like-b">like post</button>
-						<button class="request-b">send request</button>
-						<button class="comments-b">see comments</button>
-						<!-- add delete button component here, only if current user owns it/ logged in! -->
-						<DeleteButton></DeleteButton>
+				<div class="post-middle-section">
+					<div class="post-user">
+						<div class="post-username">
+							Created By : {{post.creatorName}}
+						</div>
+					</div>
+					<!-- will add functionality to post comments! -->
+					<div class="post-actions">
+						<div class="post-buttons">
+							<!-- also add "button" class to button! (thats already made in the app)-->
+							<Like-Button></Like-Button>
+
+							<!-- 
+								MAKE SURE ALL THESE BUTTON COMPONENTS ARE INLINE BLOCK 
+							 -->
+							<!-- <button class="request-b">send request</button>
+							<button class="comments-b">see comments</button> -->
+							<!-- add delete button component here, only if current user owns it/ logged in! -->
+							<DeleteButton></DeleteButton>
+						</div>
 					</div>
 				</div>
 				<div class="post-caption">
@@ -38,6 +44,7 @@
 
 <script>
 import DeleteButton from '../user-input/DeleteButton'
+import LikeButton from '../user-input/LikeButton'
 
 export default {
     props: ['posts'],
@@ -52,7 +59,8 @@ export default {
 		}
 	},
 	components: {
-		DeleteButton
+		DeleteButton,
+		LikeButton
 	}
 }
 
@@ -88,6 +96,10 @@ export default {
 	border-bottom: 15px solid rgb(255,127,80);
 }
 
+.post-middle-section{
+	background-color: rgb(255,127,80); 
+}
+
 .post-user{
 	padding: 20px 0;
 	margin-left: 20px; 
@@ -95,8 +107,8 @@ export default {
 	color:white;
 }
 
-.post-user__email{
-	color: black;
+.post-username{
+	color: white;
 	font-weight: bold;
 }
 
@@ -107,17 +119,9 @@ export default {
 }
 
 .post-buttons{
-
 	border-top-right-radius: 2px;
 	border-top-left-radius: 2px;
 	display: inline-block;
-}
-
-.post-buttons button{
-	/*display: inline-block;*/
-	margin: 0 25px;
-	font: inherit;
-	font-size: 12px;
 }
 
 .post-caption{
