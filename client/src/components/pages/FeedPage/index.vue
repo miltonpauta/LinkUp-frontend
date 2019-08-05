@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import PostService from '../../services/PostService' 
-import DisplayPosts from '../utils/DisplayPosts'
+import PostService from '../../../services/PostService' 
+import DisplayPosts from '../../shared/utils/DisplayPosts'
 
 export default {
     name: 'feedPage',

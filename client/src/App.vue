@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import PageHeader from '@/components/Header.vue'
+import PageHeader from '@/components/shared/layout/Header.vue'
 export default {
   name: 'App',
   components: {

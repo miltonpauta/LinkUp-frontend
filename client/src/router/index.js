@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Feed from '@/components/FeedPage/index'
-import Register from '@/components/Register'
-import Login from '@/components/Login'
-import CreatePost from '@/components/CreatePost'
-import YourSongsPage from '@/components/YourSongsPage/index'
+import FeedPage from '@/components/pages/FeedPage/index'
+import YourSongsPage from '@/components/pages/YourSongsPage/index'
+import Register from '@/components/shared/utils/Register'
+import Login from '@/components/shared/utils/Login'
+import CreatePost from '@/components/shared/user-input/CreatePost'
 
 Vue.use(Router)
 
@@ -13,7 +13,7 @@ const router =  new Router({
     {
       path: '/feed',
       name: 'feed',
-      component: Feed 
+      component: FeedPage 
     },
     {
       path: '/register',

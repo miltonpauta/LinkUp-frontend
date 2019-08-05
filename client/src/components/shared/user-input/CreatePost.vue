@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import PostService from '../services/PostService'
+import PostService from '../../../services/AuthenticationService'
 import axios from 'axios'
 
 export default {

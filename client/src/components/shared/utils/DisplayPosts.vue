@@ -23,6 +23,8 @@
 						<button class="like-b">like post</button>
 						<button class="request-b">send request</button>
 						<button class="comments-b">see comments</button>
+						<!-- add delete button component here, only if current user owns it/ logged in! -->
+						<DeleteButton></DeleteButton>
 					</div>
 				</div>
 				<div class="post-caption">
@@ -35,6 +37,7 @@
 </template>
 
 <script>
+import DeleteButton from '../user-input/DeleteButton'
 
 export default {
     props: ['posts'],
@@ -47,6 +50,9 @@ export default {
 		fullName(){
 			return this.posts.firstName + ' ' + this.posts.lastName
 		}
+	},
+	components: {
+		DeleteButton
 	}
 }
 

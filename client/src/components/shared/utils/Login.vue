@@ -1,51 +1,47 @@
 <template>
     <div class="form-control"> 
         <div v-if="withError" class="error" v-html="error"/>
-        <h1 class="form-title">register</h1> 
+        <h1 class="form-title">login</h1> 
         <div class="form-control__inputs">
-            <input type="text" name="firstName" v-model="firstName" placeholder="first name"> 
-            <input type="text" name="lastName" v-model="lastName" placeholder="last name"> 
             <input type="email" name="email" v-model="email" placeholder="email"> 
             <input type="password" name="password" v-model="password" placeholder="password"> 
         </div>
         <div class="form-control__actions">
-            <button @click="register" type="submit">register</button> 
+            <button @click="login" type="submit">login</button> 
         </div>
     </div>
 </template>
 
 <script>
-import AuthenticationService from '../services/AuthenticationService' 
+import AuthenticationService from '../../../services/AuthenticationService' 
 import { setTimeout } from 'timers';
 export default {
   data () {
     return {
         email: '',
         password: '',
-        firstName: '',
-        lastName: '',
         error: null,
         withError: false
     }
   }, 
   methods: {
-    async register(){
+    async login(){
         try{
-            //send request to backend and try getting the response
-            const response = await AuthenticationService.register({
-                firstName: this.firstName,
-                lastName: this.lastName,
+            const response = await AuthenticationService.login({
                 email: this.email,
                 password: this.password
             })
-            //store response data in vuex store 
+            //login is successful, response is retrieved
+            //add data to the vuex store 
+
             this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
             this.$store.dispatch('setUser', response.data.userId); 
+
             this.withError = false; 
 
-            //redirect to login page 
-            this.$router.push("/login");
-        } catch(error){
+            //redirect to feed page!
+            this.$router.push("/feed");
+        }catch(error){
             this.error = error.response.data.error; 
             this.withError = true; 
         }
