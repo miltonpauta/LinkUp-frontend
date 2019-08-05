@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button type="submit" class="like-b">
-			<font-awesome-icon icon="thumbs-up" />
+       <button type="submit" class="request-b">
+			<font-awesome-icon icon="paper-plane" />
 		</button>
     </div>
 </template>
@@ -32,7 +32,7 @@ button{
     border: none; 
 }
 
-.like-b{
+.request-b{
     padding: 0 10px; 
     font-size: 25px; 
     color: white;
@@ -40,9 +40,9 @@ button{
 
 }
 
-.like-b:hover,
-.like-b:active{
-    color: yellow;
+.request-b:hover,
+.request-b:active{
+    color: rgb(24, 200, 231);
 }
 
 </style>

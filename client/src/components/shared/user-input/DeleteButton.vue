@@ -1,6 +1,8 @@
 <template>
     <div>
-        <button>delete/hidden menu</button>
+       <button type="submit" class="delete-b">
+			<font-awesome-icon icon="trash" />
+		</button>
     </div>
 </template>
 
@@ -21,6 +23,26 @@ export default {
 <style scoped>
 
 div{
-    display: inline-block;
+    margin: 0 30px; 
+    display:inline-block; 
 }
+
+button{
+    background-color:  rgb(255,127,80);
+    border: none; 
+}
+
+.delete-b{
+    padding: 0 10px; 
+    font-size: 25px; 
+    color: white;
+    cursor: pointer;
+
+}
+
+.delete-b:hover,
+.delete-b:active{
+    color: red;
+}
+
 </style>

@@ -17,19 +17,13 @@
 							Created By : {{post.creatorName}}
 						</div>
 					</div>
-					<!-- will add functionality to post comments! -->
 					<div class="post-actions">
 						<div class="post-buttons">
 							<!-- also add "button" class to button! (thats already made in the app)-->
 							<Like-Button></Like-Button>
-
-							<!-- 
-								MAKE SURE ALL THESE BUTTON COMPONENTS ARE INLINE BLOCK 
-							 -->
-							<!-- <button class="request-b">send request</button>
-							<button class="comments-b">see comments</button> -->
-							<!-- add delete button component here, only if current user owns it/ logged in! -->
-							<DeleteButton></DeleteButton>
+							<Request-Button></Request-Button>
+							<Comment-Button></Comment-Button>
+							<Delete-Button></Delete-Button>
 						</div>
 					</div>
 				</div>
@@ -45,6 +39,8 @@
 <script>
 import DeleteButton from '../user-input/DeleteButton'
 import LikeButton from '../user-input/LikeButton'
+import RequestButton from '../user-input/RequestButton'
+import CommentButton from '../user-input/CommentButton'
 
 export default {
     props: ['posts'],
@@ -60,7 +56,9 @@ export default {
 	},
 	components: {
 		DeleteButton,
-		LikeButton
+		LikeButton,
+		RequestButton,
+		CommentButton
 	}
 }
 

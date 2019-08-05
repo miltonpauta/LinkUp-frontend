@@ -6,10 +6,10 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'     
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faTrash, faPaperPlane, faComments, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faThumbsUp)
+library.add(faThumbsUp, faTrash, faPaperPlane, faComments, faPlus); 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

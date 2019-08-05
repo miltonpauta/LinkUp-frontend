@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button type="submit" class="like-b">
-			<font-awesome-icon icon="thumbs-up" />
+       <button type="submit" class="comment-b">
+			<font-awesome-icon icon="comments" />
 		</button>
     </div>
 </template>
@@ -32,7 +32,7 @@ button{
     border: none; 
 }
 
-.like-b{
+.comment-b{
     padding: 0 10px; 
     font-size: 25px; 
     color: white;
@@ -40,9 +40,9 @@ button{
 
 }
 
-.like-b:hover,
-.like-b:active{
-    color: yellow;
+.comment-b:hover,
+.comment-b:active{
+    color: rgb(22, 238, 22); 
 }
 
 </style>

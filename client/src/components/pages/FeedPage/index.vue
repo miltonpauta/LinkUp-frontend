@@ -1,15 +1,17 @@
 <template>
     <div id="feedPage">
-        <!-- work on this form later, make a panel that displays all shit using data in mongodb  -->
+        
+        <!-- create post -->
         <div v-if="$store.state.isUserLoggedIn" class="link-to-create-post">
-            <button @click="$router.push('create')">Click to Create Post</button>
+            <button @click="$router.push('create')">
+                Click to Create Post 
+                <font-awesome-icon icon="plus" style="color:rgb(255,127,80)"/>
+            </button>
         </div>
 
+        <!-- posts display  -->
         <div class="feed-section">
-			<div class="feed-section__title">
-				<!-- Feed Page!  -->
-			</div>
-            <!-- call component to display posts, pass down posts using v-bind! -->
+			<div class="feed-section__title"></div>
             <!-- note: if data u passing down u plan to modify,etc make sure its primitive(like a string, look into it more) -->
             <DisplayPosts v-bind:posts="posts"></DisplayPosts>
 		</div>
