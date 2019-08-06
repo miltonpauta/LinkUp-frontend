@@ -35,7 +35,8 @@ export default {
             //add data to the vuex store 
 
             this.$store.dispatch('setToken', response.data.token); //calls setToken action method from store 
-            this.$store.dispatch('setUser', response.data.userId); 
+            this.$store.dispatch('setUserId', response.data.userId); 
+            this.$store.dispatch('setUser', response.data.user); 
 
             this.withError = false; 
 

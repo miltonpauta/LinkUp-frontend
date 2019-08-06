@@ -57,7 +57,7 @@ export default {
 	methods:{
 		deletePost(){
 			// pass post_id as a param to backend! 
-			
+
 		}
 	},
 	components: {

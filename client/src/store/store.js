@@ -10,7 +10,8 @@ export default new Vuex.Store({
     state:{
         token: null,
         userId: null, 
-        isUserLoggedIn: false
+        isUserLoggedIn: false,
+        user: null 
     },
     mutations:{
         setToken(state, token){
@@ -22,16 +23,27 @@ export default new Vuex.Store({
                 state.isUserLoggedIn=false; 
             }
         },
-        setUser(state, userId){
+        setUserId(state, userId){
             state.userId = userId; 
+        },
+        setUser(state, user){
+            state.user = user; 
         }
     }, 
     actions:{
         setToken({commit}, token){
             commit('setToken', token); 
         },
-        setUser({commit}, userId){
-            commit('setUser', userId)
+        setUserId({commit}, userId){
+            commit('setUserId', userId)
+        },
+        setUser({commit}, user){
+            commit('setUser', user); 
+        }
+    },
+    getters: {
+        user(state){
+            return state.user   
         }
     }
 })

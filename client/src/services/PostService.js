@@ -12,15 +12,11 @@ export default{
         return Api().get('posts'); 
     },
     createPost(formData){
-        return Api().post('posts/create',formData,{
-            header: {
-                'Content-Type': 'application/json'
-            }
-        })
+        return Api().post('posts/create',formData)
     },
     ShowMyPosts(userId){
         //hits backend route route: "localhost:3000/posts/myPosts/:userId"
-        return Api().get(`posts/myPosts/${userId}`)
+        return Api().get(`posts/myPosts/${userId}`); 
     },
     deletePost(postId){
         // rename this route? 

@@ -14,9 +14,3 @@ export default{
         return Api().post('login', credentials)
     }
 }
-
-//we will call this route with something like..
-//          AuthenticationService.register({
-//              email: 'testing@gmail.com', <--- CREDENTIALS
-//              password: '123456'          <---
-//          })

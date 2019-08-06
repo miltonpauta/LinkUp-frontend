@@ -7,11 +7,9 @@ export default ()=>{
     return axios.create({
         baseURL: `http://localhost:3000/`,
         headers: {
-            'Authorization': '1234',
+            // 'Authorization': '1234', <=== add this header to specific routes soon 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         } 
     })
 }
-
-//we can hit different endpoints with this 
