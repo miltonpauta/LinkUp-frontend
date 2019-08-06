@@ -50,9 +50,7 @@ export default {
         }
 	},
 	computed: {
-		fullName(){
-			return this.posts.firstName + ' ' + this.posts.lastName
-		}
+		
 	},
 	methods:{
 		deletePost(){

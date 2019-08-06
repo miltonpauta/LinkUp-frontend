@@ -74,8 +74,7 @@ export default {
             try{
                 await axios.post('http://localhost:3000/posts/create', formData, {
                         headers: {
-                            'Content-Type': 'multipart/form-data',
-                            'Authorization': 'Bearer ' + this.$store.state.token 
+                            'Content-Type': 'multipart/form-data'
                         }
                     }
                 )  
