@@ -67,7 +67,10 @@
 }
 
 .main-header{
-	/* position: fixed;  */
+	/* position: fixed; 
+	top: 0; 
+	left:0; 
+	z-index: 9999; */
 	/* make sure all content below has a relative(?) position and this nav z-index value is greater than all below shit */
     width:100%; 
     margin-bottom: 60px; 

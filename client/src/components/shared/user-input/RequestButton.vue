@@ -3,6 +3,7 @@
        <button type="submit" class="request-b">
 			<font-awesome-icon icon="paper-plane" />
 		</button>
+        200 requests
     </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
 <style scoped>
 
 div{
-    margin: 0 30px; 
+    margin: 0 10px; 
     display:inline-block; 
 }
 

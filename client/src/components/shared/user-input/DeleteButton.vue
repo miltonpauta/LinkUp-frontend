@@ -8,13 +8,13 @@
 
 <script>
 
-
+// pass down a delete function as a prop! 
 export default {
     data(){
         return {
 			
         }
-	}
+    }
 }
 
 </script>
@@ -23,7 +23,7 @@ export default {
 <style scoped>
 
 div{
-    margin: 0 30px; 
+    margin: 0 10px; 
     display:inline-block; 
 }
 

@@ -19,7 +19,11 @@ export default{
         })
     },
     ShowMyPosts(userId){
-        //hits route: "localhost:3000/posts/:userId"
+        //hits backend route route: "localhost:3000/posts/myPosts/:userId"
         return Api().get(`posts/myPosts/${userId}`)
+    },
+    deletePost(postId){
+        // rename this route? 
+        return Api().delete(`posts/myPosts/${postId}`)
     }
 }

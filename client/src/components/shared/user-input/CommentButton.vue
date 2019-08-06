@@ -3,6 +3,7 @@
        <button type="submit" class="comment-b">
 			<font-awesome-icon icon="comments" />
 		</button>
+        39 comments
     </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
 <style scoped>
 
 div{
-    margin: 0 30px; 
+    margin: 0 10px; 
     display:inline-block; 
 }
 

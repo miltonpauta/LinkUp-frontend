@@ -3,6 +3,8 @@
         <button type="submit" class="like-b">
 			<font-awesome-icon icon="thumbs-up" />
 		</button>
+        <!-- will be passed down by props -->
+        1000 likes 
     </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
 <style scoped>
 
 div{
-    margin: 0 30px; 
+    margin: 0 10px; 
     display:inline-block; 
 }
 

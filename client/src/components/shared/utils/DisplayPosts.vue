@@ -54,6 +54,12 @@ export default {
 			return this.posts.firstName + ' ' + this.posts.lastName
 		}
 	},
+	methods:{
+		deletePost(){
+			// pass post_id as a param to backend! 
+			
+		}
+	},
 	components: {
 		DeleteButton,
 		LikeButton,

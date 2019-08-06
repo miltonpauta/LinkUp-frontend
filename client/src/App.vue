@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <PageHeader/>
-    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
@@ -17,6 +16,7 @@ export default {
 </script>
 
 <style>
+
 body{
   margin:0; 
 }
