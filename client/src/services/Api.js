@@ -11,6 +11,6 @@ export default ()=>{
             'Authorization':`Bearer ${store.state.token}`, 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
-        } 
+        }  
     })
 }

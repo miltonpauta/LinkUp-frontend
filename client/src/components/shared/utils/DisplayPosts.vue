@@ -23,7 +23,7 @@
 							<Like-Button></Like-Button>
 							<Request-Button></Request-Button>
 							<Comment-Button></Comment-Button>
-							<Delete-Button></Delete-Button>
+							<Delete-Button @click.native="deletePost(post._id)"></Delete-Button>
 						</div>
 					</div>
 				</div>
@@ -41,21 +41,19 @@ import DeleteButton from '../user-input/DeleteButton'
 import LikeButton from '../user-input/LikeButton'
 import RequestButton from '../user-input/RequestButton'
 import CommentButton from '../user-input/CommentButton'
+import PostService from '../../../services/PostService'
 
 export default {
     props: ['posts'],
     data(){
         return {
-			fullName: ''
+
         }
 	},
-	computed: {
-		
-	},
 	methods:{
-		deletePost(){
+		async deletePost(postId){
 			// pass post_id as a param to backend! 
-
+			await PostService.deletePost(postId); 
 		}
 	},
 	components: {
