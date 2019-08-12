@@ -10,16 +10,12 @@ export default{
     index(){
         //make sure this hit backend at route: "localhost:3000/posts/"
         return Api().get('posts'); 
-    },
-    createPost(formData){
-        return Api().post('posts/create',formData)
-    },
-    ShowMyPosts(userId){
-        //hits backend route route: "localhost:3000/posts/myPosts/:userId"
-        return Api().get(`posts/myPosts/${userId}`); 
+    }, 
+    MyPosts(){
+        return Api().get('posts/myPosts');    
     },
     deletePost(postId){
-        // rename this route? 
-        return Api().delete(`posts/myPosts/${postId}`)
+        // ?postId=${postId}
+        return Api().delete(`posts/post/${postId}`);  
     }
 }

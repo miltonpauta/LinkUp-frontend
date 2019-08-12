@@ -1,6 +1,9 @@
 <template>
     <div id="feedPage">
-        
+
+        <!-- see whats wrong with this mixin below! -->
+        <!-- <h1 v-if="$store.state.isUserLogged">{{greetingMessage}}</h1> -->
+
         <!-- create post -->
         <div v-if="$store.state.isUserLoggedIn" class="link-to-create-post">
             <button @click="$router.push('create')">
@@ -21,14 +24,16 @@
 <script>
 import PostService from '../../../services/PostService' 
 import DisplayPosts from '../../shared/utils/DisplayPosts'
+import {greetingMessage} from '../../../mixins/greetingMessage'
 
 export default {
     name: 'feedPage',
+    mixins:[greetingMessage], 
     data(){
         return {
-            // this will be posts returned from backend (in a array)
             posts: null,
             // isAdmin: null
+            AdminUserName: this.$store.getters.username
         }
     }, 
     async mounted(){
@@ -37,7 +42,7 @@ export default {
         this.posts = response.data.allPosts
     },
     components: {
-        DisplayPosts
+        DisplayPosts 
     }
 }
 

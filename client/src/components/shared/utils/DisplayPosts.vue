@@ -23,7 +23,8 @@
 							<Like-Button></Like-Button>
 							<Request-Button></Request-Button>
 							<Comment-Button></Comment-Button>
-							<Delete-Button></Delete-Button>
+							<!-- There may be times when you want to listen directly to a native event on the root element of a component.  -->
+							<Delete-Button @click.native="deletePost(post._id)"></Delete-Button>
 						</div>
 					</div>
 				</div>
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import PostService from '../../../services/PostService'
 import DeleteButton from '../user-input/DeleteButton'
 import LikeButton from '../user-input/LikeButton'
 import RequestButton from '../user-input/RequestButton'
@@ -46,17 +48,17 @@ export default {
     props: ['posts'],
     data(){
         return {
-			fullName: ''
+			
         }
 	},
 	computed: {
 		
 	},
 	methods:{
-		deletePost(){
-			// pass post_id as a param to backend! 
-
-		}
+		async deletePost(postId){
+			//sends delete request to backend! 
+			const response = await PostService.deletePost(postId); 
+		} 
 	},
 	components: {
 		DeleteButton,

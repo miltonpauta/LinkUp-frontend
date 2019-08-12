@@ -2,7 +2,6 @@
 
 import axios from 'axios'
 import store from '@/store/store'
-
 // below function returns the connector to the backend api
 export default ()=>{
     return axios.create({
@@ -11,6 +10,6 @@ export default ()=>{
             'Authorization':`Bearer ${store.state.token}`, 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
-        } 
+        }
     })
 }
