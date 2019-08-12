@@ -47,7 +47,7 @@ export default {
     props: ['posts'],
     data(){
         return {
-
+			
         }
 	},
 	methods:{

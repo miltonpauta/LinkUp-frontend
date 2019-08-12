@@ -1,5 +1,6 @@
 <template>
     <div id="feedPage">
+
         <!-- work on this form later, make a panel that displays all shit using data in mongodb  -->
         <div v-if="$store.state.isUserLoggedIn" class="link-to-create-post">
             <button @click="$router.push('create')">
@@ -24,15 +25,14 @@ export default {
     name: 'YourSongsPage',
     data(){
         return {
-            // this will be posts returned from backend (in a array)
             posts: null,
             // isAdmin: null
         }
     }, 
-    async mounted(){
+    async created(){
 
         //do a request to the backend for posts belong to session user
-        const response = await PostService.ShowMyPosts(this.$store.state.userId)
+        const response = await PostService.ShowMyPosts()
         this.posts = response.data.posts; 
     },
     components: {

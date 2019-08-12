@@ -44,6 +44,9 @@ export default new Vuex.Store({
     getters: {
         user(state){
             return state.user   
+        },
+        username(state){
+            return state.user.firstName + ' ' + state.user.lastName
         }
     }
 })

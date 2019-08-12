@@ -1,6 +1,9 @@
 <template>
     <div id="feedPage">
-        
+
+        <!-- see whats wrong with this mixin below! -->
+        <!-- <h1 v-if="$store.state.isUserLogged">{{greetingMessage}}</h1> -->
+
         <!-- create post -->
         <div v-if="$store.state.isUserLoggedIn" class="link-to-create-post">
             <button @click="$router.push('create')">
@@ -26,7 +29,6 @@ export default {
     name: 'feedPage',
     data(){
         return {
-            // this will be posts returned from backend (in a array)
             posts: null,
             // isAdmin: null
         }
@@ -34,10 +36,10 @@ export default {
     async mounted(){
         //do a request to the backend for ALL the posts
         const response = await PostService.index()
-        this.posts = response.data.allPosts
+        this.posts = response.data.allPosts 
     },
     components: {
-        DisplayPosts
+        DisplayPosts 
     }
 }
 
