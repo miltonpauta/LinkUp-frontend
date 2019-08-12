@@ -42,7 +42,6 @@ export default {
         //do a request to the backend for ALL the posts
         const response = await PostService.index()
         this.posts = response.data.allPosts 
-        console.log(this.posts)
     },
     methods:{
         deletePost(postIndex){

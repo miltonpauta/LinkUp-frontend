@@ -12,7 +12,7 @@
         <div class="feed-section">
 			<div class="feed-section__title"></div>
             <!-- note: if data u passing down u plan to modify,etc make sure its primitive(like a string, look into it more) -->
-            <DisplayPosts v-bind:posts="posts"></DisplayPosts>
+            <DisplayPosts v-bind:posts="myPosts" @postDeleted="deletePost"></DisplayPosts>
 		</div>
     </div>
 </template>
@@ -29,11 +29,19 @@ export default {
             // isAdmin: null
         }
     }, 
+    computed:{
+        myPosts(){
+            return this.posts; 
+        }
+    },
     async created(){
-
-        //do a request to the backend for posts belong to session user
         const response = await PostService.ShowMyPosts()
         this.posts = response.data.posts; 
+    },
+    methods:{
+        deletePost(postIndex){
+            this.posts.splice(postIndex, 1)    
+        }
     },
     components: {
         DisplayPosts
