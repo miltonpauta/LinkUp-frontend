@@ -1,8 +1,8 @@
 <template>
     <div id="postDisplay">
-        <article v-for="post in posts" v-bind:key="post._id" class="feed-post">
+        <article v-for="(post, index) in posts" :key="index" class="feed-post">
 				<div class="post-title">
-					<label for="title">
+					<label for="title"> 
                         {{post.title}}
                     </label>
 				</div>
@@ -23,7 +23,7 @@
 							<Like-Button></Like-Button>
 							<Request-Button></Request-Button>
 							<Comment-Button></Comment-Button>
-							<Delete-Button @click.native="deletePost(post._id)"></Delete-Button>
+							<Delete-Button @click.native="deletePost(post._id, index)"></Delete-Button>
 						</div>
 					</div>
 				</div>
@@ -51,10 +51,14 @@ export default {
         }
 	},
 	methods:{
-		async deletePost(postId){
+		async deletePost(postId, index){
 			// pass post_id as a param to backend! 
-			await PostService.deletePost(postId); 
+			await PostService.deletePost(postId);
+			this.$emit('postDeleted', index)
 		}
+		// deletePost(postId){
+		// 	this.$emit('postDeleted', postId)
+		// }
 	},
 	components: {
 		DeleteButton,

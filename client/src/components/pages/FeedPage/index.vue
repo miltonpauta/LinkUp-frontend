@@ -16,7 +16,7 @@
         <div class="feed-section">
 			<div class="feed-section__title"></div>
             <!-- note: if data u passing down u plan to modify,etc make sure its primitive(like a string, look into it more) -->
-            <DisplayPosts v-bind:posts="posts"></DisplayPosts>
+            <DisplayPosts v-bind:posts="allPosts" @postDeleted="deletePost"></DisplayPosts>
 		</div>
     </div>
 </template>
@@ -33,10 +33,21 @@ export default {
             // isAdmin: null
         }
     }, 
-    async mounted(){
+    computed:{
+        allPosts(){
+            return this.posts; 
+        }
+    },
+    async created(){
         //do a request to the backend for ALL the posts
         const response = await PostService.index()
         this.posts = response.data.allPosts 
+        console.log(this.posts)
+    },
+    methods:{
+        deletePost(postIndex){
+            this.posts.splice(postIndex, 1)    
+        }
     },
     components: {
         DisplayPosts 
