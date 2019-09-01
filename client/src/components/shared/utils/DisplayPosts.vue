@@ -52,13 +52,9 @@ export default {
 	},
 	methods:{
 		async deletePost(postId, index){
-			// pass post_id as a param to backend! 
 			await PostService.deletePost(postId);
 			this.$emit('postDeleted', index)
 		}
-		// deletePost(postId){
-		// 	this.$emit('postDeleted', postId)
-		// }
 	},
 	components: {
 		DeleteButton,

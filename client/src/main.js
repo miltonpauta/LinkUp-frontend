@@ -18,8 +18,6 @@ Vue.config.productionTip = false;
 //sync store to the router, u can access store data from router (its components/endpoints)
 sync(store,router); 
 
-//Add store into this app! along with everything else below that it needs 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
