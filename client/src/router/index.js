@@ -7,6 +7,7 @@ import MessagesPage from '@/components/pages/MessagesPage/index'
 import Register from '@/components/shared/utils/Register'
 import Login from '@/components/shared/utils/Login'
 import CreatePost from '@/components/shared/user-input/CreatePost'
+import store from '../store/store';
 
 Vue.use(Router)
 
@@ -72,17 +73,18 @@ const router =  new Router({
   ]
 })
 
-// router.beforeEach((to, from, next) => {
-//   if(to.matched.some(record => record.meta.requiresAuth)) {
-//     if ($store.state.isUserLoggedIn) {
-//       next()
-//       return 
-//     }
-//     next('/login') 
-//   } else {
-//     // next()
-//     router.push('/login')
-//   }
-// })
+// Gaurds for Auth Routes 
+router.beforeEach((to, from, next)=>{
+  if(to.meta.requiresAuth){
+    if(!store.state.isUserLoggedIn){
+      next('/login')
+    }else{
+      next()
+    }
+  }else{
+    next(); 
+  }
+})
+
 
 export default router; 
