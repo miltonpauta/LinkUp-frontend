@@ -30,7 +30,6 @@ export default {
     data(){
         return {
             posts: null,
-            // isAdmin: null
         }
     }, 
     computed:{

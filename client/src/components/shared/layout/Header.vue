@@ -51,6 +51,10 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.router-link-active{
+	font-weight: bolder; 
+}
+
 .logoutButton{
 	border: 0px; 
 	background-color: rgb(255,127,80); 
