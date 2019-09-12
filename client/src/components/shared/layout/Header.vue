@@ -81,7 +81,7 @@
 	font-family: 'Questrial', sans-serif;
 	background-color: rgb(255,127,80); 
 	padding: 35px 0 0 0; 
-	height: 100px; 
+	height: 120px; 
 	/* box-sizing: border-box;  */
 }
 

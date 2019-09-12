@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'     
+
+// fortawesome icons imported below 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faThumbsUp, faTrash, faPaperPlane, faComments, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

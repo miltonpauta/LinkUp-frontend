@@ -1,22 +1,28 @@
 <template>
     <div>
-        <button type="submit" class="like-b">
-			<font-awesome-icon icon="thumbs-up" />
-		</button>
-        <!-- will be passed down by props -->
-        1000 likes 
+        <button class="like-b" @click="addLike">
+            <i slot="icon" class="fa fa-thumbs-up" :class="{liked:isLiked}"></i>
+        </button>
+        <!-- amount of likes for this post will be passed down by props -->
+        <div class="allLikes">
+            1000 likes 
+        </div>
     </div>
 </template>
 
 <script>
 
-
 export default {
     data(){
         return {
-			
+            isLiked: false
         }
-	}
+    },
+    methods: {
+        addLike(){
+            this.isLiked = !this.isLiked; 
+        }
+    }
 }
 
 </script>
@@ -25,26 +31,30 @@ export default {
 <style scoped>
 
 div{
-    margin: 0 10px; 
     display:inline-block; 
 }
 
-button{
-    background-color:  rgb(255,127,80);
-    border: none; 
+.allLikes{
+
 }
 
 .like-b{
-    padding: 0 10px; 
+    background-color: rgb(255,127,80); 
+    border: none; 
     font-size: 25px; 
     color: white;
     cursor: pointer;
-
 }
 
-.like-b:hover,
-.like-b:active{
-    color: yellow;
+button:focus,
+button:active{
+    outline: none !important; 
+    box-shadow: none !important; 
 }
+
+.liked{
+    color: yellow; 
+}
+
 
 </style>

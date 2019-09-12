@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control"> 
+    <div class="formControl"> 
         <!-- <div v-if="withError" class="error" v-html="error"/> -->
         <p v-if="withError" class="error">
             <b>Please correct the following error(s):</b>
@@ -111,7 +111,7 @@ export default {
     list-style-type: none;
 }
 
-.form-control{
+.formControl{
     text-align: center;
     margin: auto; 
     width: 500px; 
@@ -121,9 +121,10 @@ export default {
 }
 
 .form-title{
-    font-size: 40px; 
+    font-size: 33px; 
     font-weight: 400; 
     color: white; 
+    margin-bottom: 40px; 
 }
 
 .form-control__inputs input{

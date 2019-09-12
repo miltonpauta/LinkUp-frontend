@@ -1,5 +1,5 @@
 <template>
-    <div class="form-control"> 
+    <div class="formControl"> 
         <div v-if="withError" class="error" v-html="error"/>
         <h1 class="form-title">register</h1> 
         <div class="form-control__inputs">
@@ -64,7 +64,7 @@ export default {
     padding: 5px 0;
 }
 
-.form-control{
+.formControl{
     text-align: center;
     margin: auto; 
     width: 500px; 

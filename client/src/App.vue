@@ -34,4 +34,8 @@ body{
 .button:active{
   font-weight: bold; 
 }
+
+/* animation for page changes */
+
+
 </style>
