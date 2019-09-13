@@ -20,7 +20,7 @@
 					<div class="post-actions">
 						<div class="post-buttons">
 							<!-- also add "button" class to button! (thats already made in the app)-->
-							<Like-Button></Like-Button>
+							<Like-Button :likeAmt="post.stats.likes"></Like-Button>
 							<!-- pass all requests amount like props! -->
 							<Request-Button :requestAmt="post.stats.requests"></Request-Button>
 							<Comment-Button></Comment-Button>

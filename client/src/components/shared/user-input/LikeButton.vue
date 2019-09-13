@@ -5,7 +5,7 @@
         </button>
         <!-- amount of likes for this post will be passed down by props -->
         <div class="allLikes">
-            1000 likes 
+            {{likeAmt}}
         </div>
     </div>
 </template>
@@ -13,6 +13,7 @@
 <script>
 
 export default {
+    props:['likeAmt'],
     data(){
         return {
             isLiked: false
