@@ -21,7 +21,8 @@
 						<div class="post-buttons">
 							<!-- also add "button" class to button! (thats already made in the app)-->
 							<Like-Button></Like-Button>
-							<Request-Button></Request-Button>
+							<!-- pass all requests amount like props! -->
+							<Request-Button :requestAmt="post.stats.requests"></Request-Button>
 							<Comment-Button></Comment-Button>
 							<Delete-Button @click.native="deletePost(post._id, index)"></Delete-Button>
 						</div>

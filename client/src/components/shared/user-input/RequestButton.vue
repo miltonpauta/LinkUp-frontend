@@ -3,7 +3,9 @@
        <button type="submit" class="request-b">
 			<font-awesome-icon icon="paper-plane" />
 		</button>
-        200 requests
+        <div class="allRequests">
+            {{requestAmt}}
+        </div>
     </div>
 </template>
 
@@ -11,6 +13,7 @@
 
 
 export default {
+    props: ['requestAmt'],
     data(){
         return {
 			
